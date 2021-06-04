@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>aspnet-Chynayeu90331-2EED72B2-3DC0-4D77-9B73-B23309BBA004</UserSecretsId>
+    <UserSecretsId>aspnet-Chynayeu90331-DECCDC67-4076-446F-878B-65549049E0AF</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,10 +11,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>
