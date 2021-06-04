@@ -28,8 +28,8 @@ namespace Chynayeu90331.Controllers
 
         public IActionResult Index()
         {
-            Text = "Лабораторная работа 2";
-            Title = "Лабораторная работа 2";
+            Text = "Лабораторная работа 3";
+            Title = "Лабораторная работа 3";
             ViewData["Lst"] = new SelectList(_listDemo, "ListItemValue", "ListItemText");
             return View();
         }
