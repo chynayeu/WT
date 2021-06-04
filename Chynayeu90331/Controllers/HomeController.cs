@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Chynayeu90331.Controllers
 {
@@ -28,8 +25,8 @@ namespace Chynayeu90331.Controllers
 
         public IActionResult Index()
         {
-            Text = "Лабораторная работа 3";
-            Title = "Лабораторная работа 3";
+            Text = "Лабораторная работа 4";
+            Title = "Лабораторная работа 4";
             ViewData["Lst"] = new SelectList(_listDemo, "ListItemValue", "ListItemText");
             return View();
         }

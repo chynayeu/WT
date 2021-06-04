@@ -1,9 +1,6 @@
 ﻿using Chynayeu90331.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Chynayeu90331.Components
 {
@@ -11,7 +8,7 @@ namespace Chynayeu90331.Components
     {
         private List<MenuItem> _menuItems = new List<MenuItem>
         {
-            new MenuItem{ Controller="Home", Action="Index", Text="Lab 3"},
+            new MenuItem{ Controller="Home", Action="Index", Text="Lab 4"},
             new MenuItem{ Controller="Product", Action="Index", Text="Каталог"},
             new MenuItem{ IsPage=true, Area="Admin", Page="/Index", Text="Администрирование"}
         };
