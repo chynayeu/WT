@@ -11,6 +11,9 @@ using Chynayeu90331.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Chynayeu90331.Models;
+using Microsoft.Extensions.Logging;
+using Chynayeu90331.Extensions;
+using Microsoft.Net.Http.Headers;
 
 namespace Chynayeu90331
 {
@@ -58,12 +61,14 @@ namespace Chynayeu90331
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<Cart>(sp => CartService.GetCart(sp));
+       
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context, 
-            UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+            UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ILoggerFactory logger)
         {
+            /*
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -73,8 +78,9 @@ namespace Chynayeu90331
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+               // app.UseHsts();
             }
+            */
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -83,6 +89,9 @@ namespace Chynayeu90331
             app.UseAuthentication();
             app.UseSession();
             app.UseAuthorization();
+            app.UseFileLogging();
+            app.UseCors(policy =>
+                policy.AllowAnyOrigin().AllowAnyMethod().WithHeaders(HeaderNames.ContentType));
 
             app.UseEndpoints(endpoints =>
             {
@@ -91,7 +100,8 @@ namespace Chynayeu90331
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-
+            
+            logger.AddFile("Logs/log-{Date}.txt");
             DbInitializer.Seed(context, userManager, roleManager).GetAwaiter().GetResult();
         }
     }

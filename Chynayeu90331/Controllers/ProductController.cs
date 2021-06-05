@@ -3,7 +3,7 @@ using Chynayeu90331.DAL.Entities;
 using Chynayeu90331.Extensions;
 using Chynayeu90331.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 using System.Linq;
 
 namespace Chynayeu90331.Controllers
@@ -11,18 +11,20 @@ namespace Chynayeu90331.Controllers
     public class ProductController : Controller
     {
         ApplicationDbContext _context;
-
         int _pageSize;
-        public ProductController(ApplicationDbContext context)
+        private ILogger _logger;
+        public ProductController(ApplicationDbContext context, ILogger<ProductController> logger)
         {
             _pageSize = 3;
             _context = context;
+            _logger = logger;
         }
 
         [Route("Catalog")]
         [Route("Catalog/Page_{pageNo}")]
         public IActionResult Index(int? group, int pageNo=1)
         {
+            //_logger.LogInformation($"info: group={group}, page={pageNo}");
             var dishesFiltered = _context.Dishes.Where(d => !group.HasValue || d.DishGroupId == group.Value);
 
             // Поместить список групп во ViewData
