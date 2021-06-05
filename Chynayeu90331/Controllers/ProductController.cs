@@ -1,4 +1,5 @@
 ﻿using Chynayeu90331.DAL.Entities;
+using Chynayeu90331.Extensions;
 using Chynayeu90331.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace Chynayeu90331.Controllers
             SetupData();
         }
 
+        [Route("Catalog")]
+        [Route("Catalog/Page_{pageNo}")]
         public IActionResult Index(int? group, int pageNo=1)
         {
             var dishesFiltered = _dishes
@@ -25,7 +28,12 @@ namespace Chynayeu90331.Controllers
             ViewData["Groups"] = _dishGroups;
             // Получить id текущей группы и поместить в TempData
             ViewData["CurrentGroup"] = group ?? 0;
-            return View(ListViewModel<Dish>.GetModel(dishesFiltered, pageNo, _pageSize));
+            var model = ListViewModel<Dish>.GetModel(dishesFiltered, pageNo,_pageSize);
+            if (Request.IsAjaxRequest())
+                return PartialView("_listpartial", model);
+            else
+                return View(model);
+
         }
 
         /// <summary>
