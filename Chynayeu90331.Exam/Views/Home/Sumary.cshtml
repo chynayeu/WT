@@ -1,0 +1,50 @@
+﻿@using Chynayeu90331.Exam.DAL.Entities
+@model IEnumerable<Car>
+
+@{
+    ViewData["Title"] = "Все";
+}
+
+<h1>View</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuildYear)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vendor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BuildYear)
+                </td>
+                <td>
+                   @Html.ActionLink("Details", "Show", new {  id=item.CarId  }) 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

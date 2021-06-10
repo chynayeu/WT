@@ -1,0 +1,46 @@
+﻿@using Chynayeu90331.Exam.DAL.Entities
+@model Car
+
+@{
+    ViewData["Title"] = "Просмотр";
+}
+
+<h1>View</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuildYear)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.CarId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Vendor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.BuildYear)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
