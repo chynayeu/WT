@@ -12,6 +12,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chynayeu90331.Exam", "Chynayeu90331.Exam\Chynayeu90331.Exam.csproj", "{0737410B-E8DA-4A25-92F3-C950BB392DDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chynayeu90331.Exam.DAL", "Chynayeu90331.Exam.DAL\Chynayeu90331.Exam.DAL.csproj", "{180BCFAF-E2AC-480B-86D2-55FA5960F688}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chynayeu90331.Blazor", "Chynayeu90331.Blazor\Chynayeu90331.Blazor.csproj", "{D4EAAF09-CB13-4C43-8647-906ADD0CA82D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
